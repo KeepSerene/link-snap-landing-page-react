@@ -8,6 +8,7 @@ function LinkShorteningForm() {
   const [shouldThrowError, setShouldThrowError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
+  // Doesn't shorten a link: CORS issue
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -17,29 +18,28 @@ function LinkShorteningForm() {
       setShouldThrowError(true);
       setErrorMsg("Please add a link");
       setIsLoading(false);
+      setUrlInput("");
 
       return;
     }
 
-    const API_URL = "https://cleanuri.com/api/v1/shorten";
-
     try {
-      const formData = new FormData();
-      formData.append("longUrl", urlInput.trim());
-
-      const response = await fetch(API_URL, {
+      const response = await fetch("https://cleanuri.com/api/v1/shorten", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ url: urlInput.trim() }),
       });
 
       const data = await response.json();
 
       if (data.error) throw new Error(data.error);
 
-      if (data.request_url) {
-        console.log("Shortedned URL:", data.request_url);
+      if (data.result_url) {
+        console.log("Shortedned URL:", data.result_url);
 
-        setShortenedUrl(data.request_url);
+        setShortenedUrl(data.result_url);
         setShouldThrowError(false);
         setErrorMsg("");
         setUrlInput("");
@@ -51,11 +51,6 @@ function LinkShorteningForm() {
     } finally {
       setIsLoading(false);
     }
-
-    console.log(urlInput.toLowerCase().trim());
-    setShouldThrowError(false);
-    setErrorMsg("");
-    setUrlInput("");
   };
 
   return (

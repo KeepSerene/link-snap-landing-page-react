@@ -4,16 +4,27 @@ function MobileMenuModal({ setIsMobileMenuOpen, navLinkTexts }) {
       onClick={() => setIsMobileMenuOpen(false)}
       style={{ backgroundColor: "hsla(255, 11%, 22%, 0.5)" }}
       className="overflow-hidden flex justify-center items-center fixed inset-0 z-10"
+      role="dialog"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description"
     >
-      <div
+      <section
         onClick={(event) => event.stopPropagation()}
         className="w-[calc(100%-2rem)] bg-darkViolet text-white font-bold rounded-lg p-4 grid gap-8 relative z-20"
         aria-modal="true"
       >
+        <h2 id="modal-title" className="sr-only">
+          Mobile menu
+        </h2>
+
+        <p id="modal-description" className="sr-only">
+          Use the navigation links to explore the site or log in and sign up.
+        </p>
+
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen(false)}
-          aria-label="Click to close mobile open"
+          aria-label="Close mobile menu"
           className="justify-self-end transition-colors hover:text-primary focus-visible:text-primary"
         >
           <svg
@@ -68,7 +79,7 @@ function MobileMenuModal({ setIsMobileMenuOpen, navLinkTexts }) {
             Sign up
           </a>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

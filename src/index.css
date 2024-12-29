@@ -13,9 +13,4 @@
     @apply transition-opacity hover:opacity-50 focus-visible:opacity-50;
     @apply flex justify-center items-center;
   }
-
-  .sr-only {
-    @apply w-[1px] h-[1px] overflow-hidden;
-    @apply absolute top-auto left-[-99999px];
-  }
 }
