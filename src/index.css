@@ -3,6 +3,30 @@
 @tailwind utilities;
 
 @layer utilities {
+  /* Text selection styles */
+  ::selection {
+    @apply bg-primary text-white;
+  }
+
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: hsl(0, 0%, 96%); /* softWhite */
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(180, 66%, 49%); /* primary */
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsla(180, 66%, 49%, 0.8); /* Slightly lighter primary */
+  }
+
   .wrapper {
     @apply max-w-screen-lg mx-auto;
     @apply px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-12 lg:py-12;

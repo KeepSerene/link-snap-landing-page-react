@@ -4,7 +4,7 @@ LinkSnap (powered by Shortly) is a modern URL shortening service built with Reac
 
 ## Live Demo
 
-- [Play around](/)
+- [Play around](https://link-snap-delta.vercel.app/)
 
 ## 🚀 Features
 
