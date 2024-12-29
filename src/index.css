@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .wrapper {
+    @apply max-w-screen-lg mx-auto;
+    @apply px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-12 lg:py-12;
+  }
+
+  .btn {
+    @apply bg-primary text-white font-bold capitalize px-4 py-2 rounded-3xl;
+    @apply transition-opacity hover:opacity-50 focus-visible:opacity-50;
+    @apply flex justify-center items-center;
+  }
+
+  .sr-only {
+    @apply w-[1px] h-[1px] overflow-hidden;
+    @apply absolute top-auto left-[-99999px];
+  }
+}
