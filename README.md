@@ -59,7 +59,7 @@ Currently, the URL shortening functionality faces CORS (Cross-Origin Resource Sh
 - API endpoint modifications
 - Alternative API service integration
 
-We welcome contributions to help resolve this issue!
+I welcome contributions to help resolve this issue!
 
 ## 🏃‍♂️ Running the Project
 
