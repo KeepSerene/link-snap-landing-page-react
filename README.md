@@ -2,6 +2,8 @@
 
 LinkSnap (powered by Shortly) is a modern URL shortening service built with React and Tailwind CSS. Transform long, unwieldy URLs into concise, shareable links with our sleek and user-friendly interface.
 
+![Desktop screenshot of LinkSnap interface](./public/link-snap.png)
+
 ## Live Demo
 
 - [Play around](https://link-snap-delta.vercel.app/)
@@ -21,10 +23,23 @@ LinkSnap (powered by Shortly) is a modern URL shortening service built with Reac
 - **Styling**: Tailwind CSS 3.4
 - **Build Tool**: Vite 6.0
 - **Package Manager**: npm
+- **API Integration**:
+  - Vercel Serverless Function
+  - CleanURI API integration for URL shortening
 - **Development Tools**:
   - ESLint for code quality
   - PostCSS for CSS processing
   - Autoprefixer for browser compatibility
+
+## 🔗 URL Shortening Implementation
+
+The application uses a Vercel serverless function to handle URL shortening requests:
+
+- Secure proxy server implementation to bypass CORS restrictions
+- Integration with CleanURI's API service
+- Error handling for invalid URLs and API failures
+- Response caching for improved performance
+- Rate limiting protection
 
 ## 🎨 Layout & Design
 
@@ -50,16 +65,6 @@ The application features a modern, clean design with:
 - Focus management in modal dialogs
 - Screen reader friendly content structure
 - Color contrast compliance
-
-## 🚦 Known Issues & Future Improvements
-
-Currently, the URL shortening functionality faces CORS (Cross-Origin Resource Sharing) issues when interacting with the API. This is a known limitation that will be addressed in future updates through:
-
-- Implementation of a proxy server
-- API endpoint modifications
-- Alternative API service integration
-
-I welcome contributions to help resolve this issue!
 
 ## 🏃‍♂️ Running the Project
 

@@ -51,8 +51,6 @@ function LinkShorteningForm({ onLinkShorten }) {
       if (data.error) throw new Error(data.error);
 
       if (data.result_url) {
-        console.log("Shortedned URL:", data.result_url);
-
         // Call the parent handler with both URLs
         onLinkShorten(trimmedUrl, data.result_url);
 
