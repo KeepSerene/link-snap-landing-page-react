@@ -16,7 +16,7 @@ function LinkShorteningForm({ onLinkShorten }) {
     setErrorMsg("");
 
     // Trim the input URL and validate
-    const trimmedUrl = urlInput.trim();
+    const trimmedUrl = urlInput.toLowerCase().trim();
 
     if (!trimmedUrl) {
       setShouldThrowError(true);
@@ -35,7 +35,7 @@ function LinkShorteningForm({ onLinkShorten }) {
         const url = new URL(trimmedUrl);
         encodedUrl = url.toString().replace(/\s+/g, "+");
       } catch (err) {
-        throw new Error("Please enter a valid URL.");
+        throw new Error("Please enter a valid URL");
       }
 
       const response = await fetch("/api/shorten", {
