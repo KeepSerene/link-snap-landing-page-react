@@ -25,7 +25,7 @@ LinkSnap (powered by Shortly) is a modern URL shortening service built with Reac
 - **Package Manager**: npm
 - **API Integration**:
   - Vercel Serverless Function
-  - CleanURI API integration for URL shortening
+  - [CleanURI API](https://cleanuri.com/docs) integration for URL shortening
 - **Development Tools**:
   - ESLint for code quality
   - PostCSS for CSS processing
