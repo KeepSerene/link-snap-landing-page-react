@@ -39,6 +39,7 @@ function App() {
   }, []);
 
   const addShortenedLink = (originalUrl, shortenedUrl) => {
+    // Store only the latest 3 links
     const newLinks = [{ originalUrl, shortenedUrl }, ...shortenedLinks].slice(
       0,
       3

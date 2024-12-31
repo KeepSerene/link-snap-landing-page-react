@@ -16,6 +16,7 @@ LinkSnap (powered by Shortly) is a modern URL shortening service built with Reac
 - Instant URL shortening service
 - Mobile-first approach with a responsive hamburger menu
 - Dark mode support for the UI components
+- Stores the **latest three shortened links** in localStorage for quick access and displays them in the UI on subsequent visits.
 
 ## 🛠️ Tech Stack
 

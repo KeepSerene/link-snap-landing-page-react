@@ -2,6 +2,24 @@ const STORAGE_KEY = "shortenedLinks";
 
 const NAV_LINK_TEXTS = ["features", "pricing", "resources"];
 
+const FEATURES = [
+  {
+    title: "Brand recognition",
+    desc: "Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content.",
+    iconSrc: "/images/icon-brand-recognition.svg",
+  },
+  {
+    title: "Detailed records",
+    desc: "Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions.",
+    iconSrc: "/images/icon-detailed-records.svg",
+  },
+  {
+    title: "Fully customizable",
+    desc: "Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.",
+    iconSrc: "/images/icon-fully-customizable.svg",
+  },
+];
+
 const LISTS = [
   ["features", "link shortening", "branded links", "analytics"],
   ["resources", "blog", "developers", "support"],
@@ -58,4 +76,4 @@ const SOCIAL_LINKS = [
   },
 ];
 
-export { STORAGE_KEY, NAV_LINK_TEXTS, LISTS, SOCIAL_LINKS };
+export { STORAGE_KEY, NAV_LINK_TEXTS, FEATURES, LISTS, SOCIAL_LINKS };

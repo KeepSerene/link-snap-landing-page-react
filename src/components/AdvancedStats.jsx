@@ -1,22 +1,6 @@
-function AdvancedStats() {
-  const features = [
-    {
-      title: "Brand recognition",
-      desc: "Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content.",
-      iconSrc: "/images/icon-brand-recognition.svg",
-    },
-    {
-      title: "Detailed records",
-      desc: "Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions.",
-      iconSrc: "/images/icon-detailed-records.svg",
-    },
-    {
-      title: "Fully customizable",
-      desc: "Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.",
-      iconSrc: "/images/icon-fully-customizable.svg",
-    },
-  ];
+import { FEATURES } from "../utils/constants";
 
+function AdvancedStats() {
   return (
     <article className="wrapper text-grayishViolet grid gap-4">
       <h2 className="text-veryDarkViolet text-[1.5rem] md:text-[2rem] font-bold capitalize text-center">
@@ -29,7 +13,7 @@ function AdvancedStats() {
       </p>
 
       <div className="mt-6 grid grid-cols-1 md:grid-cols-3 md:items-start gap-12 md:gap-6">
-        {features.map((feature, index) => (
+        {FEATURES.map((feature, index) => (
           <section
             key={index}
             className={`bg-softWhite rounded-md p-6 relative ${
