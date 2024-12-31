@@ -1,4 +1,6 @@
-function Header({ setIsMobileMenuOpen, navLinkTexts }) {
+import { NAV_LINK_TEXTS } from "../utils/constants";
+
+function Header({ setIsMobileMenuOpen }) {
   return (
     <header
       id="header"
@@ -13,7 +15,7 @@ function Header({ setIsMobileMenuOpen, navLinkTexts }) {
         {/* Desktop navigation */}
         <nav className="hidden md:block">
           <ul className="flex items-center gap-4">
-            {navLinkTexts.map((navLinkText, index) => (
+            {NAV_LINK_TEXTS.map((navLinkText, index) => (
               <li key={index}>
                 <a
                   href="#"

@@ -1,4 +1,6 @@
-function MobileMenuModal({ setIsMobileMenuOpen, navLinkTexts }) {
+import { NAV_LINK_TEXTS } from "../utils/constants";
+
+function MobileMenuModal({ setIsMobileMenuOpen }) {
   return (
     <div
       onClick={() => setIsMobileMenuOpen(false)}
@@ -48,7 +50,7 @@ function MobileMenuModal({ setIsMobileMenuOpen, navLinkTexts }) {
           className="border-b pb-4"
         >
           <ul className="flex flex-col items-center gap-4">
-            {navLinkTexts.map((navLinkText, index) => (
+            {NAV_LINK_TEXTS.map((navLinkText, index) => (
               <li key={index}>
                 <a
                   href="#"

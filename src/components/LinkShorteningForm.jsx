@@ -1,20 +1,24 @@
 // React imports
 import { useState } from "react";
 
-function LinkShorteningForm() {
+function LinkShorteningForm({ onLinkShorten }) {
   const [urlInput, setUrlInput] = useState("");
-  const [shortenedUrl, setShortenedUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [shouldThrowError, setShouldThrowError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  // Doesn't shorten a link: CORS issue
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    setShortenedUrl("");
 
-    if (!urlInput.trim()) {
+    // Clear any previous errors
+    setShouldThrowError(false);
+    setErrorMsg("");
+
+    // Trim the input URL and validate
+    const trimmedUrl = urlInput.trim();
+
+    if (!trimmedUrl) {
       setShouldThrowError(true);
       setErrorMsg("Please add a link");
       setIsLoading(false);
@@ -24,12 +28,22 @@ function LinkShorteningForm() {
     }
 
     try {
-      const response = await fetch("https://cleanuri.com/api/v1/shorten", {
+      // URL validation and encoding
+      let encodedUrl;
+
+      try {
+        const url = new URL(trimmedUrl);
+        encodedUrl = url.toString().replace(/\s+/g, "+");
+      } catch (err) {
+        throw new Error("Please enter a valid URL.");
+      }
+
+      const response = await fetch("/api/shorten", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ url: urlInput.trim() }),
+        body: JSON.stringify({ url: encodedUrl }),
       });
 
       const data = await response.json();
@@ -39,9 +53,9 @@ function LinkShorteningForm() {
       if (data.result_url) {
         console.log("Shortedned URL:", data.result_url);
 
-        setShortenedUrl(data.result_url);
-        setShouldThrowError(false);
-        setErrorMsg("");
+        // Call the parent handler with both URLs
+        onLinkShorten(trimmedUrl, data.result_url);
+
         setUrlInput("");
       }
     } catch (err) {
@@ -86,10 +100,14 @@ function LinkShorteningForm() {
 
       <button
         type="submit"
-        style={{ borderRadius: "0.375rem" }}
+        style={{
+          borderRadius: "0.375rem",
+          opacity: isLoading ? "0.5" : "",
+          cursor: isLoading ? "not-allowed" : "",
+        }}
         className="btn"
       >
-        Shorten it!
+        {isLoading ? "Shortening..." : "Shorten it!"}
       </button>
     </form>
   );
